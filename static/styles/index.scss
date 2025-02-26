@@ -1,0 +1,434 @@
+// 定义常用的间距值
+$spacing-values: 0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64;
+// 使用像素作为基础单位，而不是 rem
+$spacing-unit: 4px; // 基础单位改为 4px
+// 循环生成 margin 和 padding 类
+@each $value in $spacing-values {
+	// margin
+	.m-#{$value} {
+		margin: #{$value * $spacing-unit};
+	}
+	// margin-top
+	.mt-#{$value} {
+		margin-top: #{$value * $spacing-unit};
+	}
+	// margin-bottom
+	.mb-#{$value} {
+		margin-bottom: #{$value * $spacing-unit};
+	}
+	// margin-left
+	.ml-#{$value} {
+		margin-left: #{$value * $spacing-unit};
+	}
+	// margin-right
+	.mr-#{$value} {
+		margin-right: #{$value * $spacing-unit};
+	}
+	// padding
+	.p-#{$value} {
+		padding: #{$value * $spacing-unit};
+	}
+	// padding-top
+	.pt-#{$value} {
+		padding-top: #{$value * $spacing-unit};
+	}
+	// padding-bottom
+	.pb-#{$value} {
+		padding-bottom: #{$value * $spacing-unit};
+	}
+	// padding-left
+	.pl-#{$value} {
+		padding-left: #{$value * $spacing-unit};
+	}
+	// padding-right
+	.pr-#{$value} {
+		padding-right: #{$value * $spacing-unit};
+	}
+
+	// margin-y (上下)
+	.my-#{$value} {
+		margin-top: #{$value * $spacing-unit} !important;
+		margin-bottom: #{$value * $spacing-unit} !important;
+	}
+	// margin-x (左右)
+	.mx-#{$value} {
+		margin-left: #{$value * $spacing-unit} !important;
+		margin-right: #{$value * $spacing-unit} !important;
+	}
+
+	// padding-x (左右)
+	.px-#{$value} {
+		padding-left: #{$value * $spacing-unit} !important;
+		padding-right: #{$value * $spacing-unit} !important;
+	}
+
+	// padding-y (上下)
+	.py-#{$value} {
+		padding-top: #{$value * $spacing-unit} !important;
+		padding-bottom: #{$value * $spacing-unit} !important;
+	}
+}
+
+
+/* 定义 z-index 的范围 */
+$z-index-range: 1, 2, 3, 5, 10, 20, 50, 100;
+
+@each $z in $z-index-range {
+  .z-index-#{$z} {
+    z-index: #{$z};
+  }
+}
+
+
+
+// html {
+//   font-size: 750 / 750 * 100px;  /* 转换为 144px, 1rpx = 1.44px */
+// }
+
+
+
+
+/* Flex 布局通用类 */
+/* Flex 容器 */
+.flex { display: flex; }
+
+.inline-flex { display: inline-flex; }  /* */
+
+.flex-row { flex-direction: row; /* 默认的排列方向 */ }
+
+.flex-row-reverse {
+  flex-direction: row-reverse; /* 水平反向排列 */
+}
+
+.flex-column {
+  flex-direction: column; /* 垂直排列 */
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse; /* 垂直反向排列 */
+}
+
+.flex-wrap {
+  flex-wrap: wrap; /* 子元素换行 */
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap; /* 子元素不换行 */
+}
+
+/* 对齐方式 */
+
+/* 主轴对齐 */
+.justify-start {
+  justify-content: flex-start; /* 左对齐 */
+}
+
+.justify-center {
+  justify-content: center; /* 居中对齐 */
+}
+
+.justify-end {
+  justify-content: flex-end; /* 右对齐 */
+}
+
+.justify-between {
+  justify-content: space-between; /* 两端对齐，项目之间有间距 */
+}
+
+.justify-around {
+  justify-content: space-around; /* 项目均匀分布，间隔相等 */
+}
+
+.justify-evenly {
+  justify-content: space-evenly; /* 项目之间的间隔相等 */
+}
+
+/* 交叉轴对齐 */
+.align-start {
+  align-items: flex-start; /* 顶部对齐 */
+}
+
+.align-center {
+  align-items: center; /* 垂直居中 */
+}
+
+.align-end {
+  align-items: flex-end; /* 底部对齐 */
+}
+
+.align-stretch {
+  align-items: stretch; /* 子元素拉伸填满容器 */
+}
+
+/* 项目对齐 */
+.align-self-start {
+  align-self: flex-start; /* 单个项目顶部对齐 */
+}
+
+.align-self-center {
+  align-self: center; /* 单个项目垂直居中 */
+}
+
+.align-self-end {
+  align-self: flex-end; /* 单个项目底部对齐 */
+}
+
+.align-self-stretch {
+  align-self: stretch; /* 单个项目拉伸填满容器 */
+}
+
+/* 对齐项目间距 */
+// .gap-xs {
+//   gap: 4px;
+// }
+
+// .gap-sm {
+//   gap: 8px;
+// }
+
+/* 设置左右间距 gap */
+.gap-horizontal {
+  gap: 0 8px; /* 上下间距为 0，左右间距为 8px */
+}
+
+
+// .gap-md {
+//   gap: 12px;
+// }
+
+// .gap-lg {
+//   gap: 16px;
+// }
+
+// .gap-xl {
+//   gap: 24px;
+// }
+
+/* 定义 gap 值的映射 */
+$gap-sizes: (
+  "xs": 4px,
+  "sm": 8px,
+  "md": 12px,
+  "lg": 16px,
+  "xl": 24px
+);
+
+@each $name, $value in $gap-sizes {
+  .gap-#{$name} {
+    gap: #{$value};
+  }
+}
+
+
+/* Flex 项目布局 */
+.flex-1 {
+  flex: 1;
+}
+
+.flex-auto {
+  flex: 0 1 auto; /* 默认值，可以缩放，但不必定填满 */
+}
+
+.flex-grow {
+  flex-grow: 1; /* 项目可以增长，占据可用空间 */
+}
+
+.flex-shrink {
+  flex-shrink: 1; /* 项目可以缩小 */
+}
+
+.flex-none {
+  flex: none; /* 项目不增长也不缩小 */
+}
+
+
+/* 样式 */
+// .radius-0 {
+//   border-radius: 0;
+// }
+// .radius-1 {
+//   border-radius: 4px;
+// }
+// .radius-2 {
+//   border-radius: 8px;
+// }
+// .radius-3 {
+//   border-radius: 12px;
+// }
+
+/* 定义 radius 值的映射 */
+$radius-sizes: (
+  "0": 0,
+  "1": 4px,
+  "2": 8px,
+  "3": 12px,
+  "999":999px
+);
+
+@each $name, $value in $radius-sizes {
+  .radius-#{$name} {
+    border-radius: #{$value};
+  }
+}
+
+
+.no-top-left-radius {
+  border-top-left-radius: 0;
+}
+.full-height {
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* 字体大小 */
+
+.font-size-xs {
+  font-size: $font-size-xs; /* 正文（迷你） */
+}
+.font-size-sm {
+  font-size: $font-size-sm; /* 正文（小） */
+}
+
+.font-size-base {
+  font-size: $font-size-base; /* 主字号 */
+}
+
+.font-size {
+  font-size: $font-size; /* 主字号，与 font-size-base 相同 */
+}
+
+.font-size-lg {
+  font-size: $font-size-lg; /* 标题 */
+}
+
+.font-size-xl {
+  font-size: $font-size-xl; /* 主标题 */
+}
+
+.font-size-2xl {
+  font-size: $font-size-2xl; /* 大标题 */
+}
+
+.font-size-3xl {
+  font-size: $font-size-3xl; /* 特大标题 */
+}
+
+
+
+/* 主题色调 */
+.uni-color-primary {
+  color: $uni-color-primary; /* 主题色 - 重要界面、按钮、标签 */
+}
+
+.uni-color-price {
+  color: $uni-color-price; /* 价格相关 */
+}
+
+.uni-color-tag-orange {
+  color: $uni-color-tag-orange; /* 部分标签 - 橙色 */
+}
+
+.uni-color-tag-green {
+  color: $uni-color-tag-green; /* 部分标签 - 绿色 */
+}
+
+.uni-color-tag-blue {
+  color: $uni-color-tag-blue; /* 极少数标签 - 蓝色 */
+}
+
+
+
+/* 文字颜色 */
+.text-dark {
+  color: $uni-text-dark;  /* 深色文字 */
+}
+
+.text-medium {
+  color: $uni-text-medium;  /* 中等深度文字 */
+}
+
+.text-light {
+  color: $uni-text-light;  /* 浅色文字 */
+}
+
+.text-lighter {
+  color: $uni-text-lighter;  /* 非常浅的文字 */
+}
+
+.text-muted {
+  color: $uni-text-muted;  /* 很淡的文字 */
+}
+
+.text-white {
+  color: $uni-text-white;   /* 白色文字 */
+}
+
+/* 文本居左对齐 */
+.text-left {
+  text-align: left;
+}
+
+/* 文本居中对齐 */
+.text-center {
+  text-align: center;
+}
+
+/* 文本居右对齐 */
+.text-right {
+  text-align: right;
+}
+
+/* 文本两端对齐 */
+.text-justify {
+  text-align: justify;
+}
+
+
+.bg-white {
+	background-color: #fff;
+}
+
+
+/* 定义一个类 */
+.bg-dark {
+  background-color: #2B2C2F;
+}
+
+.bg-primary {
+	background-color: $uni-color-primary;
+	
+}
+
+/* 定义 overflow 的类型 */
+$overflow-types: auto, hidden, scroll, visible;
+
+@each $type in $overflow-types {
+	.overflow-#{$type}{
+      overflow: #{$type};
+    }
+  
+    .overflow-x-#{$type} {
+      overflow-x: #{$type};
+    }
+  
+	.overflow-y-#{$type} {
+		overflow-y: #{$type};
+	}
+}
+
+
+
+
+/* 底部安全区 */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Font - 加粗类 */
+.font-bold {
+  font-weight: bold; /* 设置字体加粗 */
+}
+
